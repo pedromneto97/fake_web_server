@@ -48,7 +48,10 @@ class FakeWebServer {
     return _requests.remove(path)!;
   }
 
-  void clearMockedRequests() => _requests.clear();
+  void clear() {
+    _requests.clear();
+    _responses.clear();
+  }
 
   void _run() async {
     await for (final request in _server) {
